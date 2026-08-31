@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>إلى حبيبتي ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ overflow:hidden;
+ font-family:Tahoma,Arial,sans-serif;
+ color:white;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ background:
+ radial-gradient(circle at 50% 40%,#7b174d 0%,#360025 38%,#09000c 100%);
+}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ background:radial-gradient(circle,rgba(255,70,150,.15),transparent 60%);
+ animation:bg 5s infinite alternate;
+}
+
+@keyframes bg{
+ from{transform:scale(1)}
+ to{transform:scale(1.3)}
+}
+
+.container{
+ position:relative;
+ z-index:10;
+ padding:25px;
+}
+
+h1{
+ font-size:clamp(30px,8vw,60px);
+ margin:0 0 12px;
+ text-shadow:0 0 20px #ff4d9d;
+}
+
+.subtitle{
+ font-size:18px;
+ opacity:.85;
+ margin-bottom:35px;
+}
+
+.heart{
+ width:135px;
+ height:135px;
+ background:#ff2875;
+ position:relative;
+ margin:0 auto;
+ transform:rotate(-45deg);
+ cursor:pointer;
+ box-shadow:
+ 0 0 25px #ff2875,
+ 0 0 65px rgba(255,40,117,.8);
+ animation:beat 1.1s infinite;
+}
+
+.heart:before,
+.heart:after{
+ content:"";
+ width:135px;
+ height:135px;
+ background:#ff2875;
+ border-radius:50%;
+ position:absolute;
+}
+
+.heart:before{
+ top:-67px;
+ left:0;
+}
+
+.heart:after{
+ top:0;
+ left:67px;
+}
+
+.heartText{
+ position:absolute;
+ z-index:5;
+ transform:rotate(45deg);
+ width:135px;
+ top:48px;
+ left:0;
+ font-size:32px;
+}
+
+@keyframes beat{
+ 0%,100%{transform:rotate(-45deg) scale(1)}
+ 50%{transform:rotate(-45deg) scale(1.12)}
+}
+
+.message{
+ margin-top:55px;
+ opacity:0;
+ transform:translateY(25px) scale(.8);
+ transition:1.2s;
+}
+
+.message.show{
+ opacity:1;
+ transform:translateY(0) scale(1);
+}
+
+.big{
+ font-size:clamp(32px,8vw,55px);
+ font-weight:bold;
+ text-shadow:0 0 25px #ff66a8;
+}
+
+.small{
+ margin-top:18px;
+ font-size:18px;
+ line-height:2;
+ opacity:.9;
+}
+
+.button{
+ margin-top:25px;
+ padding:13px 28px;
+ border:1px solid rgba(255,255,255,.4);
+ border-radius:30px;
+ background:rgba(255,255,255,.12);
+ color:white;
+ font-size:17px;
+ cursor:pointer;
+ backdrop-filter:blur(10px);
+}
+
+.floating{
+ position:fixed;
+ bottom:-50px;
+ pointer-events:none;
+ animation:up linear forwards;
+ z-index:2;
+}
+
+@keyframes up{
+ 0%{transform:translateY(0) rotate(0);opacity:1}
+ 100%{transform:translateY(-115vh) rotate(360deg);opacity:0}
+}
+
+.rose{
+ position:fixed;
+ bottom:-80px;
+ font-size:42px;
+ animation:rose 5s ease-out forwards;
+ pointer-events:none;
+ z-index:3;
+}
+
+@keyframes rose{
+ 0%{
+  transform:translateY(0) scale(.4) rotate(0);
+  opacity:0
+ }
+ 15%{opacity:1}
+ 100%{
+  transform:translateY(-110vh) scale(1.2) rotate(35deg);
+  opacity:0
+ }
+}
+
+.star{
+ position:fixed;
+ width:3px;
+ height:3px;
+ border-radius:50%;
+ background:white;
+ animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+ from{opacity:.2}
+ to{opacity:1}
+}
+
+#intro{
+ position:fixed;
+ inset:0;
+ z-index:50;
+ background:radial-gradient(circle,#570c38,#10000f);
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ transition:1s;
+}
+
+#intro h2{
+ font-size:clamp(28px,7vw,48px);
+ margin-bottom:30px;
+}
+
+.open{
+ padding:15px 35px;
+ border:0;
+ border-radius:35px;
+ background:#ff2875;
+ color:white;
+ font-size:20px;
+ box-shadow:0 0 30px #ff2875;
+ cursor:pointer;
+}
+
+.hidden{
+ opacity:0;
+ pointer-events:none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+ <h2>عندي شيء صغير إلك... ❤️</h2>
+ <button class="open" onclick="openLove()">افتحي الرسالة 💌</button>
+</div>
+
+<div class="container">
+
+ <h1>إلى أجمل إنسانة ❤️</h1>
+
+ <div class="subtitle">
+ اضغطي على القلب وخلي قلبك يكتشف الرسالة...
+ </div>
+
+ <div class="heart" onclick="love()">
+   <div class="heartText">❤️</div>
+ </div>
+
+ <div class="message" id="message">
+
+   <div class="big">
+     بموت فيكي ❤️
+   </div>
+
+   <div class="small">
+     إنتِ مو بس شخص أحبه...<br>
+     إنتِ أجمل شيء صار بحياتي 🌹<br>
+     وكل يوم أحبك أكثر من اليوم اللي قبله 💕
+   </div>
+
+   <button class="button" onclick="love()">
+     اضغطي مرة ثانية 🌹
+   </button>
+
+ </div>
+
+</div>
+
+<script>
+
+let audio;
+
+function openLove(){
+ document.getElementById("intro").classList.add("hidden");
+ createStars();
+}
+
+function love(){
+
+ document.getElementById("message").classList.add("show");
+
+ for(let i=0;i<35;i++){
+   setTimeout(()=>{
+     floating(Math.random()>0.4 ? "💕" : "❤️");
+   },i*45);
+ }
+
+ for(let i=0;i<20;i++){
+   setTimeout(()=>{
+     rose();
+   },i*100);
+ }
+
+ sound();
+}
+
+function floating(symbol){
+
+ const e=document.createElement("div");
+
+ e.className="floating";
+ e.innerHTML=symbol;
+
+ e.style.left=Math.random()*100+"vw";
+ e.style.fontSize=(18+Math.random()*30)+"px";
+ e.style.animationDuration=(3+Math.random()*4)+"s";
+
+ document.body.appendChild(e);
+
+ setTimeout(()=>e.remove(),7000);
+}
+
+function rose(){
+
+ const e=document.createElement("div");
+
+ e.className="rose";
+ e.innerHTML="🌹";
+
+ e.style.left=(5+Math.random()*90)+"vw";
+ e.style.animationDuration=(3+Math.random()*3)+"s";
+
+ document.body.appendChild(e);
+
+ setTimeout(()=>e.remove(),6500);
+}
+
+function createStars(){
+
+ for(let i=0;i<80;i++){
+
+   const s=document.createElement("div");
+
+   s.className="star";
+
+   s.style.left=Math.random()*100+"vw";
+   s.style.top=Math.random()*100+"vh";
+   s.style.animationDelay=Math.random()*2+"s";
+
+   document.body.appendChild(s);
+ }
+}
+
+/* لحن بسيط يتم توليده من المتصفح */
+function sound(){
+
+ try{
+
+   if(!audio)
+     audio=new (window.AudioContext||window.webkitAudioContext)();
+
+   const notes=[523,659,784,659,880];
+
+   notes.forEach((freq,i)=>{
+
+     const osc=audio.createOscillator();
+     const gain=audio.createGain();
+
+     osc.frequency.value=freq;
+     osc.type="sine";
+
+     gain.gain.setValueAtTime(0,audio.currentTime+i*.12);
+     gain.gain.linearRampToValueAtTime(.08,audio.currentTime+i*.12+.03);
+     gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+i*.12+.25);
+
+     osc.connect(gain);
+     gain.connect(audio.destination);
+
+     osc.start(audio.currentTime+i*.12);
+     osc.stop(audio.currentTime+i*.12+.3);
+
+   });
+
+ }catch(e){}
+
+}
+
+createStars();
+
+</script>
+
+</body>
+</html>
