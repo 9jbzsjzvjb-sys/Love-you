@@ -1,1 +1,414 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>يا زينچ ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #1a0e0a, #2d1a12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', 'Tahoma', cursive, sans-serif;
+            overflow: hidden;
+            position: relative;
+            direction: rtl;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 2s ease;
+            background: rgba(20, 10, 8, 0.8);
+            padding: 45px 50px;
+            border-radius: 100px 20px 100px 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff6b6b99;
+            box-shadow: 0 0 80px #ff6b6b44;
+            max-width: 92%;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.7) rotate(-3deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
+        }
+
+        .heart {
+            font-size: 140px;
+            display: inline-block;
+            animation: heartbeat 1.2s infinite ease-in-out;
+            filter: drop-shadow(0 0 50px #ff3366);
+            cursor: pointer;
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .heart:active {
+            transform: scale(0.9) !important;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.2); }
+            70% { transform: scale(1); }
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 46px;
+            font-weight: bold;
+            color: #f5e1c0;
+            text-shadow: 0 0 25px #ff3366, 0 0 70px #ff336666;
+            animation: glowPulse 2.5s infinite alternate;
+            letter-spacing: 1px;
+            min-height: 80px;
+            transition: 0.3s;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.9; text-shadow: 0 0 15px #ff3366; }
+            100% { opacity: 1; text-shadow: 0 0 45px #ff3366, 0 0 90px #ff6b6b77; }
+        }
+
+        .sub-message {
+            margin-top: 10px;
+            font-size: 24px;
+            color: #dcc9b0;
+            opacity: 0.9;
+            text-shadow: 0 0 10px #00000099;
+            min-height: 40px;
+        }
+
+        .counter {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ff9999;
+            opacity: 0.6;
+        }
+
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 19px;
+            background: #ff3366;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 30px #ff336666;
+            transition: 0.3s;
+            font-weight: bold;
+            font-family: inherit;
+            border: 2px solid #ffffff55;
+        }
+
+        .btn:hover {
+            background: #ff6b6b;
+            transform: scale(1.05);
+            box-shadow: 0 0 50px #ff6b6b88;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff3366;
+            color: #ff3366;
+        }
+
+        .btn-outline:hover {
+            background: #ff3366;
+            color: #fff;
+        }
+
+        .flower {
+            position: fixed;
+            font-size: 38px;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+            filter: drop-shadow(0 5px 15px rgba(255, 51, 102, 0.6));
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-120px) rotate(0deg) scale(0.6); opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg) scale(1.4); opacity: 0; }
+        }
+
+        .mini-heart {
+            position: fixed;
+            font-size: 28px;
+            animation: flyUp 5s ease-in infinite;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        @keyframes flyUp {
+            0% { transform: translateY(100vh) scale(0.2) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.9; }
+            100% { transform: translateY(-20vh) scale(1.6) rotate(400deg); opacity: 0; }
+        }
+
+        .star {
+            position: fixed;
+            font-size: 18px;
+            animation: twinkle 3s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.1; transform: scale(0.8); }
+            100% { opacity: 0.6; transform: scale(1.4); }
+        }
+
+        /* تأثير ظهور النص */
+        .pop-text {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px 20px; }
+            .heart { font-size: 100px; }
+            .message { font-size: 30px; min-height: 60px; }
+            .sub-message { font-size: 18px; }
+            .btn { font-size: 16px; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="flower-container"></div>
+    <div id="mini-heart-container"></div>
+    <div id="star-container"></div>
+
+    <div class="container">
+        <div class="heart" id="mainHeart">❤️</div>
+        <div class="message pop-text" id="mainMessage">اضغط على القلب 💕</div>
+        <div class="sub-message" id="subMessage">كل ضغطة تطلع كلمة حب 🇰🇼</div>
+        <div class="counter" id="counter">عدد الضغطات: 0</div>
+        <div class="btn-group">
+            <button class="btn" onclick="addRomance()">🌹 زيد ورد 🌹</button>
+            <button class="btn btn-outline" onclick="resetMessages()">🔄 من البداية</button>
+        </div>
+    </div>
+
+    <script>
+        // ========== عبارات كويتية للحب ==========
+        const loveMessages = [
+            "يا زينچ ❤️",
+            "يا عسولة 🌹",
+            "قلبي لج 🫀",
+            "انتي نور عيني ✨",
+            "يا روحي 💖",
+            "على كيفج انتي 🌸",
+            "يا غلاي 💎",
+            "انتي الحياة 🌺",
+            "ما أروعج 💫",
+            "يا طيبة القلب 🌹",
+            "عيونج سحر 🌙",
+            "انتي أجمل شي 💕",
+            "عشقج نار 🔥",
+            "ياما غلاج 💎",
+            "انتي الأمان 🌸",
+            "حبج عيد 🎉",
+            "يا بعد روحي ❤️",
+            "يا حبيبتي 💗",
+            "انتي القمر 🌙",
+            "روحج نور ✨",
+            "شكثرج حلوة 💖",
+            "يا زينة البنات 🌹",
+            "قلبي دايم لج 💕",
+            "ما أحلاج 💫",
+            "انتي الغلا كله 🌸",
+            "يا ملاك 💫",
+            "انتي عالمي 🌍",
+            "عشقج يجنن 💘",
+            "يا حلوة الروح 🌹",
+            "انتي كل شي 💎"
+        ];
+
+        const subMessages = [
+            "قلبي دق لج 🌹",
+            "عيونج سحر 🌙",
+            "يا طيبة القلب 🌹",
+            "انتي أجمل شيء 💕",
+            "عشقج نار 🔥",
+            "ياما غلاج 💎",
+            "روحج نور ✨",
+            "انتي الأمان 🌸",
+            "حبج عيد 🎉",
+            "يا بعد روحي ❤️",
+            "ما أحلاج 💖",
+            "انتي الغلا كله 🌹",
+            "قلبي لج يميل 💕",
+            "يا زينة البنات ✨",
+            "على كيفج انتي 🌸",
+            "شكثرچ حلوة 💗",
+            "انتي الحلم 🌙",
+            "روحج جميلة 💫",
+            "قلبي يهواچ 💘",
+            "انتي النور 🌟"
+        ];
+
+        let currentIndex = 0;
+        let clickCount = 0;
+
+        // ========== تغيير الرسالة عند الضغط ==========
+        function showNextMessage() {
+            const mainMsg = document.getElementById('mainMessage');
+            const subMsg = document.getElementById('subMessage');
+            const counter = document.getElementById('counter');
+
+            // زيادة العداد
+            clickCount++;
+            counter.textContent = `عدد الضغطات: ${clickCount}`;
+
+            // اختيار رسالة عشوائية
+            const randomIndex = Math.floor(Math.random() * loveMessages.length);
+            mainMsg.textContent = loveMessages[randomIndex];
+            subMsg.textContent = subMessages[Math.floor(Math.random() * subMessages.length)] + ' 🌹';
+
+            // تأثير النص
+            mainMsg.classList.remove('pop-text');
+            void mainMsg.offsetWidth; // إعادة تشغيل الأنيميشن
+            mainMsg.classList.add('pop-text');
+
+            // تأثير القلب
+            const heart = document.getElementById('mainHeart');
+            heart.style.transform = 'scale(1.6)';
+            setTimeout(() => heart.style.transform = '', 350);
+
+            // ورد وقلوب
+            for (let i = 0; i < 6; i++) {
+                setTimeout(createFlower, i * 120);
+                setTimeout(createMiniHeart, i * 150);
+            }
+        }
+
+        // ========== إضافة ورد وقلوب ==========
+        function addRomance() {
+            for (let i = 0; i < 12; i++) {
+                setTimeout(createFlower, i * 120);
+                setTimeout(createMiniHeart, i * 150);
+            }
+            const heart = document.getElementById('mainHeart');
+            heart.style.transform = 'scale(1.5)';
+            setTimeout(() => heart.style.transform = '', 400);
+        }
+
+        // ========== إعادة الضبط ==========
+        function resetMessages() {
+            clickCount = 0;
+            document.getElementById('counter').textContent = 'عدد الضغطات: 0';
+            document.getElementById('mainMessage').textContent = 'اضغط على القلب 💕';
+            document.getElementById('subMessage').textContent = 'كل ضغطة تطلع كلمة حب 🇰🇼';
+            document.getElementById('mainMessage').classList.remove('pop-text');
+            void document.getElementById('mainMessage').offsetWidth;
+            document.getElementById('mainMessage').classList.add('pop-text');
+        }
+
+        // ========== دوال إنشاء العناصر ==========
+        function createFlower() {
+            const el = document.createElement('div');
+            el.className = 'flower';
+            const emojis = ['🌹', '🌸', '🌺', '💐', '🌷', '🌼', '❤️', '💖', '🌻', '🥀'];
+            el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (30 + Math.random() * 45) + 'px';
+            el.style.animationDuration = (5 + Math.random() * 6) + 's';
+            el.style.animationDelay = (Math.random() * 2) + 's';
+            document.getElementById('flower-container').appendChild(el);
+            setTimeout(() => el.remove(), 13000);
+        }
+
+        function createMiniHeart() {
+            const el = document.createElement('div');
+            el.className = 'mini-heart';
+            el.textContent = ['❤️', '💕', '💗', '💖', '💘', '♥️', '💝'][Math.floor(Math.random() * 7)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.fontSize = (20 + Math.random() * 35) + 'px';
+            el.style.animationDuration = (4 + Math.random() * 5) + 's';
+            el.style.animationDelay = (Math.random() * 3) + 's';
+            document.getElementById('mini-heart-container').appendChild(el);
+            setTimeout(() => el.remove(), 10000);
+        }
+
+        function createStar() {
+            const el = document.createElement('div');
+            el.className = 'star';
+            el.textContent = ['✦', '✧', '⭐', '🌟', '✨'][Math.floor(Math.random() * 5)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.top = Math.random() * 100 + '%';
+            el.style.fontSize = (15 + Math.random() * 25) + 'px';
+            el.style.animationDelay = (Math.random() * 4) + 's';
+            el.style.animationDuration = (2 + Math.random() * 3) + 's';
+            document.getElementById('star-container').appendChild(el);
+            setTimeout(() => el.remove(), 6000);
+        }
+
+        // ========== ربط الضغط على القلب ==========
+        document.getElementById('mainHeart').addEventListener('click', showNextMessage);
+
+        // ========== تحميل الصفحة ==========
+        window.onload = function() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createFlower, i * 200);
+                setTimeout(createMiniHeart, i * 250);
+                setTimeout(createStar, i * 350);
+            }
+
+            setInterval(() => {
+                createFlower();
+                if (Math.random() > 0.4) createMiniHeart();
+                if (Math.random() > 0.7) createStar();
+            }, 3000);
+        };
+
+        // ========== حركة الماوس ==========
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.98) {
+                const el = document.createElement('div');
+                el.className = 'flower';
+                el.textContent = ['🌹', '🌸', '❤️', '💖', '🌺'][Math.floor(Math.random() * 5)];
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                el.style.fontSize = (25 + Math.random() * 30) + 'px';
+                el.style.animationDuration = (4 + Math.random() * 4) + 's';
+                el.style.position = 'fixed';
+                el.style.pointerEvents = 'none';
+                el.style.zIndex = '0';
+                document.body.appendChild(el);
+                setTimeout(() => el.remove(), 8000);
+            }
+        });
+    </script>
+
+</body>
+</html>
